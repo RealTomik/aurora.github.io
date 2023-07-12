@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loading Circle Animation</title>
+    <style>
+        body {
+            background-color: #222;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-top: 16px solid #3498db;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 0.75s linear infinite, color-switch 4s linear infinite, glow 1.5s ease-in-out infinite;
+        }
+
+        .loading-text {
+            color: #fff;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes color-switch {
+            0% { border-top-color: #3498db; }
+            50% { border-top-color: #ff6347; }
+            100% { border-top-color: #3498db; }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px #3498db; }
+            50% { box-shadow: 0 0 20px #3498db; }
+            100% { box-shadow: 0 0 5px #3498db; }
+        }
+    </style>
+</head>
+<body onload="Main()" >
+    <div class="loader"></div>
+    <center><div class="loading-text"><p id="animtext"></p></div></center>
+</body>
+</html>
+
+<script>
+       
+   function Main() {
+       frame1()
+   }
+   //setInterval(Main, 1000);
+   
+   function Change(s,m,e) {
+       var st = s;
+       var md = '<a style="color:#3498db;">'+m+'</a>';
+       var en = e;
+       var str = st+md+en
+       console.log(str);
+       return str;
+   }
+   
+   function Print(id,str) {
+       const txt = document.getElementById(id);
+       txt.innerHTML = str;
+   }
+   
+   var seconds = 0.2;
+   var tm = seconds * 1000;
+   function frame1() {
+       var str = Change('','L','OADING');
+       Print("animtext",str)
+       setInterval(frame2, tm);
+   }
+   function frame2() {
+       var str = Change('L','O','ADING');
+       Print("animtext",str)
+       setInterval(frame3, tm);
+   }
+   function frame3() {
+       var str = Change('LO','A','DING');
+       Print("animtext",str)
+       setInterval(frame4, tm);
+   }
+   function frame4() {
+       var str = Change('LOA','D','ING');
+       Print("animtext",str)
+       setInterval(frame5, tm);
+   }
+   function frame5() {
+       var str = Change('LOAD','I','NG');
+       Print("animtext",str)
+       setInterval(frame6, tm);
+   }
+   function frame6() {
+       var str = Change('LOADI','N','G');
+       Print("animtext",str)
+       setInterval(frame7, tm);
+   }
+   function frame7() {
+       var str = Change('LOADIN','G','');
+       Print("animtext",str)
+       setInterval(frame1, tm);
+   }
+   
+</script>
