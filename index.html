@@ -34,7 +34,7 @@
 
         @keyframes color-switch {
             0% { border-top-color: #3498db; }
-            50% { border-top-color: #ff6347; }
+            50% { border-top-color: #39abf7; } /* #ff6347 */
             100% { border-top-color: #3498db; }
         }
 
@@ -47,67 +47,5 @@
 </head>
 <body>
     <div class="loader"></div>
-    <center><div class="loading-text"><p id="animtext"></p></div></center>
 </body>
 </html>
-
-<script>
-       
-   function Main() {
-       frame1()
-   }
-   //setInterval(Main, 1000);
-   
-   function Change(s,m,e) {
-       var st = s;
-       var md = '<a style="color:#3498db;">'+m+'</a>';
-       var en = e;
-       var str = st+md+en
-       console.log(str);
-       return str;
-   }
-   
-   function Print(id,str) {
-       const txt = document.getElementById(id);
-       txt.innerHTML = str;
-   }
-   
-   var seconds = 0.75;
-   var tm = seconds * 1000;
-   function frame1() {
-       var str = Change('','L','OADING');
-       Print("animtext",str)
-       setInterval(frame2, tm);
-   }
-   function frame2() {
-       var str = Change('L','O','ADING');
-       Print("animtext",str)
-       setInterval(frame3, tm);
-   }
-   function frame3() {
-       var str = Change('LO','A','DING');
-       Print("animtext",str)
-       setInterval(frame4, tm);
-   }
-   function frame4() {
-       var str = Change('LOA','D','ING');
-       Print("animtext",str)
-       setInterval(frame5, tm);
-   }
-   function frame5() {
-       var str = Change('LOAD','I','NG');
-       Print("animtext",str)
-       setInterval(frame6, tm);
-   }
-   function frame6() {
-       var str = Change('LOADI','N','G');
-       Print("animtext",str)
-       setInterval(frame7, tm);
-   }
-   function frame7() {
-       var str = Change('LOADIN','G','');
-       Print("animtext",str)
-       setInterval(Main, tm);
-   }
-   
-</script>
